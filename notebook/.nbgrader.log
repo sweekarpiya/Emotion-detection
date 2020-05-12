@@ -1,0 +1,59 @@
+[NotebookApp | WARNING] No nbgrader_config.py file found (rerun with --debug to see where nbgrader is looking)
+[NotebookApp | INFO] Loading the validate_assignment nbgrader serverextension
+[NotebookApp | INFO] Serving notebooks from local directory: /Fusemachines/Training/Project methodology training/Emotion_detection/notebook
+[NotebookApp | INFO] The Jupyter Notebook is running at:
+[NotebookApp | INFO] http://localhost:8888/?token=f275ac21ad3126aa494d859938a41d70aa76b13d7ebe0606
+[NotebookApp | INFO]  or http://127.0.0.1:8888/?token=f275ac21ad3126aa494d859938a41d70aa76b13d7ebe0606
+[NotebookApp | INFO] Use Control-C to stop this server and shut down all kernels (twice to skip confirmation).
+[NotebookApp | CRITICAL] 
+    
+    To access the notebook, open this file in a browser:
+        file:///home/gr33n/.local/share/jupyter/runtime/nbserver-8255-open.html
+    Or copy and paste one of these URLs:
+        http://localhost:8888/?token=f275ac21ad3126aa494d859938a41d70aa76b13d7ebe0606
+     or http://127.0.0.1:8888/?token=f275ac21ad3126aa494d859938a41d70aa76b13d7ebe0606
+[NotebookApp | INFO] Kernel started: f55ffb1f-0521-417e-8b2d-78e7f34a22d2
+[NotebookApp | INFO] Adapting from protocol version 5.1 (kernel f55ffb1f-0521-417e-8b2d-78e7f34a22d2) to 5.3 (client).
+[NotebookApp | INFO] Saving file at /01-01-SP-Car_Ads_Processing.ipynb
+[NotebookApp | INFO] Saving file at /01-01-SP-Car_Ads_Processing.ipynb
+[NotebookApp | INFO] Saving file at /01-01-SP-Car_Ads_Processing.ipynb
+[NotebookApp | INFO] Saving file at /01-01-SP-Car_Ads_Processing.ipynb
+[NotebookApp | INFO] Saving file at /01-01-SP-Car_Ads_Processing.ipynb
+[NotebookApp | INFO] Saving file at /01-01-SP-Car_Ads_Processing.ipynb
+[NotebookApp | INFO] Saving file at /01-01-SP-Car_Ads_Processing.ipynb
+[NotebookApp | INFO] Saving file at /01-01-SP-Car_Ads_Processing.ipynb
+[NotebookApp | INFO] Saving file at /01-01-SP-Car_Ads_Processing.ipynb
+[NotebookApp | INFO] Saving file at /01-01-SP-Car_Ads_Processing.ipynb
+[NotebookApp | INFO] Saving file at /01-01-SP-Car_Ads_Processing.ipynb
+[NotebookApp | INFO] Saving file at /01-01-SP-Car_Ads_Processing.ipynb
+[NotebookApp | INFO] Saving file at /01-01-SP-Car_Ads_Processing.ipynb
+[NotebookApp | INFO] Saving file at /01-01-SP-Car_Ads_Processing.ipynb
+[NotebookApp | INFO] Saving file at /01-01-SP-Car_Ads_Processing.ipynb
+[NotebookApp | INFO] Saving file at /01-01-SP-Car_Ads_Processing.ipynb
+[NotebookApp | INFO] Saving file at /01-01-SP-Car_Ads_Processing.ipynb
+[NotebookApp | INFO] Saving file at /01-01-SP-Car_Ads_Processing.ipynb
+[NotebookApp | WARNING] No nbgrader_config.py file found (rerun with --debug to see where nbgrader is looking)
+[NotebookApp | INFO] Loading the validate_assignment nbgrader serverextension
+[NotebookApp | INFO] Serving notebooks from local directory: /Fusemachines/Training/Project methodology training/Emotion_detection/notebook
+[NotebookApp | INFO] The Jupyter Notebook is running at:
+[NotebookApp | INFO] http://localhost:8888/?token=bb1c2cba6f87b9092291a7bbe570a51d88969d623bc18d19
+[NotebookApp | INFO]  or http://127.0.0.1:8888/?token=bb1c2cba6f87b9092291a7bbe570a51d88969d623bc18d19
+[NotebookApp | INFO] Use Control-C to stop this server and shut down all kernels (twice to skip confirmation).
+[NotebookApp | CRITICAL] 
+    
+    To access the notebook, open this file in a browser:
+        file:///home/gr33n/.local/share/jupyter/runtime/nbserver-2572-open.html
+    Or copy and paste one of these URLs:
+        http://localhost:8888/?token=bb1c2cba6f87b9092291a7bbe570a51d88969d623bc18d19
+     or http://127.0.0.1:8888/?token=bb1c2cba6f87b9092291a7bbe570a51d88969d623bc18d19
+[NotebookApp | WARNING] Notebook 01-01-SP-Car_Ads_Processing.ipynb is not trusted
+[NotebookApp | INFO] Kernel started: a0a766a9-b1e4-404f-ad66-20e102b3d35d
+[NotebookApp | INFO] Adapting from protocol version 5.1 (kernel a0a766a9-b1e4-404f-ad66-20e102b3d35d) to 5.3 (client).
+[NotebookApp | INFO] Saving file at /01-01-SP-Car_Ads_Processing.ipynb
+[NotebookApp | WARNING] Notebook 01-01-SP-Car_Ads_Processing.ipynb is not trusted
+[NotebookApp | INFO] Saving file at /01-01-SP-Car_Ads_Processing.ipynb
+[NotebookApp | INFO] Saving file at /01-01-SP-Car_Ads_Processing.ipynb
+[NotebookApp | INFO] Saving file at /01-01-SP-Car_Ads_Processing.ipynb
+[NotebookApp | INFO] Saving file at /01-01-SP-Car_Ads_Processing.ipynb
+[NotebookApp | INFO] Saving file at /01-01-SP-Car_Ads_Processing.ipynb
+[NotebookApp | INFO] Saving file at /01-01-SP-Car_Ads_Processing.ipynb
