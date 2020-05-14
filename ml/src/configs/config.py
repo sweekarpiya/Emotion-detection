@@ -15,3 +15,10 @@ CHECKPOINT_PATH = os.path.join(ROOT_DIR, "checkpoints")
 OUTPUT_PATH = os.path.join(ROOT_DIR, "out")
 
 LOG_PATH = os.path.join(ROOT_DIR, 'logs')
+
+PLOT_PARAMS = {'legend.fontsize': 20,
+'figure.figsize': (15, 5),
+'axes.labelsize': 20,
+'axes.titlesize': 20,
+'xtick.labelsize':15,
+'ytick.labelsize':15}

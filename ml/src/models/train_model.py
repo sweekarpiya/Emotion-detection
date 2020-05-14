@@ -2,21 +2,29 @@ import pandas as pd
 import seaborn as sns
 import matplotlib.pyplot as plt
 import os
-from configs import config
+import mlflow
+import mlflow.sklearn
+from urllib.parse import urlparse
+
 from sklearn.naive_bayes import MultinomialNB # Baseline model for 1st Iteration
 from sklearn.svm import SVC
+from sklearn.linear_model import LogisticRegression
 from sklearn.model_selection import train_test_split
-from sklearn.metrics import classification_report,confusion_matrix
+from sklearn.metrics import accuracy_score
 
+from configs import config
 from features.build_features import feature_engineer
+from evaluate.evaluation import conf_matrix_plot, report_classification
 
 model_dict={
+    'softmax_l1': LogisticRegression(penalty='l1', multi_class="multinomial", solver='saga'),
+    'softmax_l2': LogisticRegression(penalty='l2', multi_class="multinomial"),
     'naive_bayes': MultinomialNB(),
     'svc': SVC()
 }
 
 def ml_model_training(model='naive_bayes', save_report=False):
-    """Conducts training of the Machine learning model
+    """Conducts training of the Machine learning model and upload metric to mlflow
 
     Conducts the training of machine learning model using either
     Naive_bayes or Support_vector_machine.
@@ -42,39 +50,33 @@ def ml_model_training(model='naive_bayes', save_report=False):
         X_train, X_test, y_train, y_test = train_test_split(features,
                                         enc_labels.ravel(),
                                         test_size=0.2)
+        
+        with mlflow.start_run():
+            print('------------Starting Model Training------------')
+            trained_model.fit(X_train, y_train)
 
-        print('------------Starting Model Training------------')
+            print('------------Training Completed---------------')
+            predicted_label_train = trained_model.predict(X_train)
+            predicted_label_test = trained_model.predict(X_test)
 
-        trained_model.fit(X_train, y_train)
+            train_accuracy = accuracy_score(y_train, predicted_label_train)
+            test_accuracy = accuracy_score(y_test, predicted_label_test)
 
-        print('------------Training Completed---------------')
-        predicted_label_train = trained_model.predict(X_train)
-        predicted_label_test = trained_model.predict(X_test)
+            mlflow.log_metric('train_accuracy', train_accuracy)
+            mlflow.log_metric('test_accuracy', test_accuracy)
+    
+            mlflow.log_param('classifier', model)
 
-        if save_report==True:
-            print('Saving the classification report')
-            
-            train_report = classification_report(y_train, predicted_label_train, digits=3, output_dict=True)
-            test_report = classification_report(y_test, predicted_label_test, digits=3, output_dict=True)
-            train_report = pd.DataFrame(train_report).transpose()
+            tracking_url_type_store = urlparse(mlflow.get_tracking_uri()).scheme
 
-            test_report = pd.DataFrame(test_report).transpose()
+            if tracking_url_type_store != "file":
+                mlflow.sklearn.log_model(trained_model, "model", registered_model_name=model)
+            else:
+                mlflow.sklearn.log_model(trained_model, "model")
 
-            train_report.to_csv(os.path.join(config.OUTPUT_PATH,'train_report.csv'))
-            test_report.to_csv(os.path.join(config.OUTPUT_PATH,'test_report.csv'))
-
-            confusion_mat = confusion_matrix(y_test, predicted_label_test)
-            ax = sns.heatmap(confusion_mat.T, square=True, annot=True, fmt='d', cbar=False)
-            ax.set_xticklabels(list(labels[0]))
-            ax.set_yticklabels(list(labels[0]))
-            plt.savefig(os.path.join(config.OUTPUT_PATH,'heatmap.png'))
-            print('Completed')
-
-        else:
-            print('***********For Training************')
-            print(classification_report(y_train, predicted_label_train, digits=3))
-            print('***********For Testing************')
-            print(classification_report(y_test, predicted_label_test, digits=3))
+            if save_report==True:
+                conf_matrix_plot(model, y_test, predicted_label_test, labels)
+                report_classification(model, y_train, y_test, predicted_label_train, predicted_label_test)
         
     except KeyError:
         print('Please enter a valid model, either \'naive_bayes\' or \'svc\'')
