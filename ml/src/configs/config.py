@@ -10,4 +10,8 @@ DATASET_URL = 'https://docs.google.com/uc?export=download&id=11VDtm3zI012vFKHiua
 
 MODEL_PATH = os.path.join(ROOT_DIR, 'ml/model')
 
-CHECKPOINT_PATH = os.path.join(BASE_DIR, "checkpoints")
+CHECKPOINT_PATH = os.path.join(ROOT_DIR, "checkpoints")
+
+OUTPUT_PATH = os.path.join(ROOT_DIR, "out")
+
+LOG_PATH = os.path.join(ROOT_DIR, 'logs')

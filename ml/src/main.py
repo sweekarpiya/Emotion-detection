@@ -1,12 +1,12 @@
+# file to operate the training and prediction
 import os
 import sys
-import pandas as pd
+
 sys.path.append(os.path.join(os.path.abspath(os.curdir),'ml'))
 
-from data.get_dataset import fetch_dataset
+from models.train_model import ml_model_training
 
-# download the dataset
-dataset = fetch_dataset()
+ml_model_training(model='naive_bayes', save_report=True)
 
-print(dataset.head())
+
 
