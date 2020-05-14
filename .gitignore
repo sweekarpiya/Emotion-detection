@@ -1,0 +1,6 @@
+.DS_Store
+/mlruns
+
+*.log
+*.csv
+/.ipynb_checkpoints
