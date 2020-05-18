@@ -1,7 +1,6 @@
 .DS_Store
-/mlruns
+/ml
 
-**/__pycache__
 *.log
 *.csv
 /.ipynb_checkpoints

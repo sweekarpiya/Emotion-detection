@@ -43,12 +43,9 @@ def conf_matrix_plot(model_name, y_test, y_test_pred, target):
         plt.savefig(os.path.join(config.OUTPUT_PATH, model_name+'_test_heatmap.png'))
         print('Completed')
 
-    
-
-
                         
-def report_classification(model_name, y_train, y_test, y_train_pred, y_test_pred):
-        """Save classification report in CSV files
+def report_classification(model_name, y_train, y_test, y_train_pred, y_test_pred, save=True):
+        """Return and/or Save classification report in CSV files
 
         Parameters
         ----------
@@ -68,16 +65,27 @@ def report_classification(model_name, y_train, y_test, y_train_pred, y_test_pred
                         predicted labels of the test_set
 
 
+        Returns
+        -------
+        train_report_dict: Dictionary
+                        Train set classification report
+        
+        test_report_dict: Dictionary
+                        Test set classification report
         """
-        print('Saving confusion Matrix')
-        print('Saving the classification report')
+        print('Computing Classification Report')
+        
 
-        train_report = classification_report(y_train, y_train_pred, digits=3, output_dict=True)
-        test_report = classification_report(y_test, y_test_pred, digits=3, output_dict=True)
-        train_report = pd.DataFrame(train_report).transpose()
+        train_report_dict = classification_report(y_train, y_train_pred, digits=3, output_dict=True)
+        test_report_dict = classification_report(y_test, y_test_pred, digits=3, output_dict=True)
+        if save==True:
+                print('Saving the classification report')
+                train_report = pd.DataFrame(train_report_dict).transpose()
 
-        test_report = pd.DataFrame(test_report).transpose()
-
-        train_report.to_csv(os.path.join(config.OUTPUT_PATH,model_name+'_train_report.csv'))
-        test_report.to_csv(os.path.join(config.OUTPUT_PATH, model_name+'test_report.csv'))
-        print('Completed')
+                test_report = pd.DataFrame(test_report_dict).transpose()
+                
+                train_report.to_csv(os.path.join(config.OUTPUT_PATH,model_name+'_train_report.csv'))
+                test_report.to_csv(os.path.join(config.OUTPUT_PATH, model_name+'test_report.csv'))
+                print('Completed')
+        
+        return train_report_dict, test_report_dict
