@@ -19,10 +19,10 @@ Emotion-detection (NLP) project assigned at workflow training.
 ├── env                <- Virtual environments
 ├── logs               <- Logs of the project
 ├── ml                 <- ML related files
-|	├── data           <- Dataset for training
-|		└── external   <- Secondary data sources.
-|	├── models             <- Trained and 		  serialized models/artifacts
-|	├── src             <- Source code for training prediction
+	├── data           <- Dataset for training
+	    └── external   <- Secondary data sources.
+	├── models             <- Trained and 		  serialized models/artifacts
+	├── src             <- Source code for training prediction
 	│   ├── __init__.py
 	│   │
 	│   ├── configs         <- Contains the config files.
@@ -56,6 +56,7 @@ Emotion-detection (NLP) project assigned at workflow training.
 	|   |   └── tokenizer.py
 	|   |
 	│   ├── main.py      <- script to run the flask web app/ train model
+|	|   |
 ├── notebooks          <- Data analysis Jupyter notebooks
 ├── out          <- Output reports of training
 │
@@ -81,7 +82,7 @@ Highly recommended to check the config files of both API and ML. They contain in
 
 #### API Server
 ```
-python ml/src/main.py
+python3 ml/src/main.py
 ```
 Opens Flask server at port 5555
 
@@ -96,7 +97,7 @@ Opens Flask server at port 5555
 #### Training model and starting API Server
 
 ```
-python ml/src/main.py --train <train_option> --model <model_name> --save <y or n> --feature <feature_method>
+python3 ml/src/main.py --train <train_option> --model <model_name> --save <y or n> --feature <feature_method>
 ```
 mlflow logging at 5000 port
 
