@@ -78,6 +78,7 @@ def report_classification(model_name, y_train, y_test, y_train_pred, y_test_pred
 
         train_report_dict = classification_report(y_train, y_train_pred, digits=3, output_dict=True)
         test_report_dict = classification_report(y_test, y_test_pred, digits=3, output_dict=True)
+        print('Completed')
         if save==True:
                 print('Saving the classification report')
                 train_report = pd.DataFrame(train_report_dict).transpose()

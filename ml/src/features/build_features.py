@@ -1,11 +1,13 @@
+import os
+import numpy as np
+import pickle
 from sklearn.preprocessing import OrdinalEncoder
 from sklearn.feature_extraction.text import CountVectorizer, TfidfVectorizer
 
-import numpy as np
-
+from configs import config
 from features.text_preprocesser import data_preprocess
 
-def feature_engineer(method="count", n_gram=(1,2)):
+def feature_engineer(method="count", n_gram=(1,1)):
     """Conducts feature engineering on the preprocessed dataset
 
     Preprocessing involves CountVectorizer/TfIdfVectorizer for features
@@ -45,9 +47,19 @@ def feature_engineer(method="count", n_gram=(1,2)):
     encoded_category = label_encoder.categories_
 
     if method == "count":
-        features = CountVectorizer(lowercase=False, ngram_range=n_gram).fit_transform(data)
+        vect = CountVectorizer(lowercase=False, ngram_range=n_gram)
+        features = vect.fit_transform(data)
     elif method == 'tfidf':
-        features = TfidfVectorizer(lowercase=False, ngram_range=n_gram).fit_transform(data)
+        vect = TfidfVectorizer(lowercase=False, ngram_range=n_gram)
+        features = vect.fit_transform(data)
     
-    print('Completed')   
+    print('Completed')  
+
+    # store the vectorizer
+    with open(os.path.join(config.MODEL_PATH, "vectorizer.pkl"), 'wb') as file:
+        pickle.dump(vect, file)
+    # store the encoder
+    with open(os.path.join(config.MODEL_PATH, "label_encoder.pkl"), 'wb') as file:
+        pickle.dump(label_encoder, file)
+        
     return features, encoded_label, encoded_category
