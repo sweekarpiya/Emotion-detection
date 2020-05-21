@@ -107,15 +107,9 @@ save -> y/n (save classification report in csv and heatmap as png or not)
 feature_method -> count, tfidf
 
 ### Reproducibility
-Dockerfile is present in the project
 
-#### Build Image file
+#### Run using docker-compose file
 ```
-sudo docker build - t emotion_detection .
+sudo docker-compose up
 ```
-
-#### Run the container
-```
-sudo docker run -p <port>:5555 emotion_detection
-```
-<port>: Desired port
+API runs on ```127.0.0.1:5555```
