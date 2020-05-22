@@ -13,7 +13,7 @@ Emotion-detection (NLP) project assigned at workflow training.
 │   ├── app.py         	<- Main API file
 │   ├── settings.py    	<- Settings file for Database
 |
-├── checkpoints        	<- Checkpoints of Machine Learning model.
+├── checkpoints        	<- Checkpoints/saves of trained Machine Learning model.
 |
 ├── docs               <- Project related analysis and other documents
 ├── env                <- Virtual environments
@@ -69,6 +69,12 @@ Emotion-detection (NLP) project assigned at workflow training.
 
 Generate a virtual environment to avoid any conflicts.
 
+```
+python3 -m venv /env/emotion
+source /env/emotion/bin/activate
+
+```
+
 ### Requirements
 
 ```
@@ -80,22 +86,11 @@ Highly recommended to check the config files of both API and ML. They contain in
 
 ### Run
 
-#### API Server
-```
-python3 ml/src/main.py
-```
-Opens Flask server at port 5555
-
-#### End-points
-
-- ```/``` - Initial API page(Template to redirect to create/prediction page)
-- ```/api/v1/create``` - [GET] Form to input sentence for classification (Template)
-- ```/api/v1/create``` - [POST] Renders the emotion prediction of the sentence (Template)
-- ```/api/v1/predictions``` - [GET] Sends JSON response of the stored prediction documents (API)
-- ```/api/v1/predictions/<emotion>``` - [GET] Sends JSON response of the stored prediction documents given the emotion. (API)
-
 #### Training model and starting API Server
 
+First run of the project requires you to train the model, as the checkpoints aren't pushed to github, due to heavy memory space.
+
+Run Command
 ```
 python3 ml/src/main.py --train <train_option> --model <model_name> --save <y or n> --feature <feature_method>
 ```
@@ -106,7 +101,25 @@ mlflow logging at 5000 port
 - ```save -> y/n (save classification report in csv and heatmap as png or not)```
 - ```feature_method -> count, tfidf```
 
+__NOTE__: Use ```yes, rand_clf, n, count``` for training the model on the first run.
+
+Opens Flask server at port 5555
+
+#### API Server
+```
+python3 ml/src/main.py
+```
+#### End-points
+
+- ```/``` - Initial API page(Template to redirect to create/prediction page)
+- ```/api/v1/create``` - [GET] Form to input sentence for classification (Template)
+- ```/api/v1/create``` - [POST] Renders the emotion prediction of the sentence (Template)
+- ```/api/v1/predictions``` - [GET] Sends JSON response of the stored prediction documents (API)
+- ```/api/v1/predictions/<emotion>``` - [GET] Sends JSON response of the stored prediction documents given the emotion. (API)
+
+
 ### Reproducibility
+Before docker ensure you have trained the model.
 
 #### Run using docker-compose file
 ```
