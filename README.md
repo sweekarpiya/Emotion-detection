@@ -88,11 +88,11 @@ Opens Flask server at port 5555
 
 #### End-points
 
-- ```/``` - Initial API page
-- ```/api/v1/create``` - [GET] Form to input sentence for classification 
-- ```/api/v1/create``` - [POST] Renders the emotion prediction of the sentence
-- ```/api/v1/predictions``` - [GET] Sends JSON response of the stored prediction documents
-- ```/api/v1/predictions/<emotion>``` - [GET] Sends JSON response of the stored prediction documents given the emotion.
+- ```/``` - Initial API page(Template to redirect to create/prediction page)
+- ```/api/v1/create``` - [GET] Form to input sentence for classification (Template)
+- ```/api/v1/create``` - [POST] Renders the emotion prediction of the sentence (Template)
+- ```/api/v1/predictions``` - [GET] Sends JSON response of the stored prediction documents (API)
+- ```/api/v1/predictions/<emotion>``` - [GET] Sends JSON response of the stored prediction documents given the emotion. (API)
 
 #### Training model and starting API Server
 
@@ -101,10 +101,10 @@ python3 ml/src/main.py --train <train_option> --model <model_name> --save <y or 
 ```
 mlflow logging at 5000 port
 
-train_option -> yes/no
-model\_name -> naive\_bayes, svc, softmax\_l1, softmax\_l2, rand\_clf
-save -> y/n (save classification report in csv and heatmap as png or not)
-feature_method -> count, tfidf
+- ```train_option -> yes/no```
+- ```model_name -> naive_bayes, svc, softmax_l1, softmax_l2, rand_clf```
+- ```save -> y/n (save classification report in csv and heatmap as png or not)```
+- ```feature_method -> count, tfidf```
 
 ### Reproducibility
 
