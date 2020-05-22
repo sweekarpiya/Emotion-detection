@@ -2,8 +2,9 @@ from data.get_dataset import fetch_dataset
 from utils.lower_case import lower_casing
 from utils.symbol_removal import removal
 from utils.tokenizer import nltk_tokenizer
-
+from utils.data_augment import data_augment
 import pandas as pd
+
 
 def data_preprocess(join=True):
     """
@@ -34,6 +35,7 @@ def data_preprocess(join=True):
     
     corpus = dataset['sentences']
     label = dataset['emotion']
+    corpus, label = data_augment(corpus, label)
     processed_corpus = nltk_tokenizer(removal(lower_casing(corpus)), join=join)
 
     print('Preprocessing Completed')
