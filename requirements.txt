@@ -11,7 +11,7 @@ nlpaug==0.0.14
 bson==0.5.8
 Click==7.0
 Flask==0.12.2
-Flask-Cors==3.0.7
+Flask-Cors==3.0.9
 Flask-PyMongo==2.3.0
 gunicorn==19.9.0
 itsdangerous==1.1.0
